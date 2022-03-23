@@ -13,21 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin/dashboard');
-});
-Route::get('/article-list', function () {
-    return view('admin/article-list');
-});
 Route::get('/login-page', function () {
     return view('admin/login');
-});
+})->name('login-page');
 Route::get('/forgot', function () {
     return view('admin/forgot-password');
+})->name('forgot');
+
+Route::get('/', function() {
+    return view('main/master');
+})->name('home');
+
+Route::prefix('administration')->group(function(){
+    Route::get('/dashboard', function () {
+        return view('admin/dashboard');
+    })->middleware(['auth'])->name('dashboard');
+    Route::prefix('article')->group(function(){
+        Route::get('/list', function () {
+            return view('admin/article-list');
+        })->middleware(['auth'])->name('article-list');
+        Route::get('/manage', function () {
+            return view('admin/article-manage');
+        })->middleware(['auth'])->name('article-manage');
+    });
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

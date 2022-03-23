@@ -34,8 +34,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item {{ request()->is('administration/dashboard') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('administration/dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -44,15 +44,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{ route('dashboard') }}" class="nav-link {{ request()->is('administration/dashboard') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item {{ request()->is('administration/article/*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('administration/article/*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Article
@@ -61,15 +67,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('article-list') }}" class="nav-link {{ request()->is('administration/article/list') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Article List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('article-manage') }}" class="nav-link {{ request()->is('administration/article/manage') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Article</p>
+                  <p>Manage Article</p>
                 </a>
               </li>
             </ul>

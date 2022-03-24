@@ -17,5 +17,6 @@
   @include('admin.layouts.footer')
 </div>
 @include('admin.layouts.mainjs')
+@yield('addon-js')
 </body>
 </html>

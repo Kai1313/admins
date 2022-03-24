@@ -32,7 +32,7 @@ Route::prefix('administration')->group(function(){
         Route::get('/list', function () {
             return view('admin/article-list');
         })->middleware(['auth'])->name('article-list');
-        Route::get('/manage', function () {
+        Route::get('/manage/{id?}', function () {
             return view('admin/article-manage');
         })->middleware(['auth'])->name('article-manage');
     });

@@ -31,35 +31,22 @@
               </div>
             </div>
             <div class="card-body">
-              <div class="form-group">
-                <label for="inputName">Title</label>
-                <input type="text" id="inputName" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputDescription">Content</label>
-                <textarea id="inputDescription" class="form-control" rows="4"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="inputStatus">Status</label>
-                <select id="inputStatus" class="form-control custom-select">
-                  <option selected disabled>Select one</option>
-                  <option>On Hold</option>
-                  <option>Canceled</option>
-                  <option>Success</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="inputClientCompany">Client Company</label>
-                <input type="text" id="inputClientCompany" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputProjectLeader">Project Leader</label>
-                <input type="text" id="inputProjectLeader" class="form-control">
-              </div>
+              <form action="" method="post" id="article-form">
+                <div class="form-group">
+                  <label for="inputTitle">Title</label>
+                  <input type="text" id="inputTitle" name="inputTitle" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="inputDescription">Content</label>
+                  <textarea id="inputDescription" name="inputDescription" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="thumbnailImage">Thumbnail</label>
+                  <input type="file" id="thumbnailImage" class="form-control">
+                </div>
+              </form>
             </div>
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
         </div>
       </div>
       <div class="row">
@@ -69,5 +56,7 @@
         </div>
       </div>
     </section>
-    <!-- /.content -->
+@endsection
+@section('addon-js')
+  <script type="text/javascript" src="{{ asset('js/admin/article-manage.js') }}"></script>
 @endsection

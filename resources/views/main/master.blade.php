@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@include('main.layouts.header')
 <body>
-  <h2>Hello World</h2>
+  @include('main.layouts.navbar')
+
+  @yield('content')
+
+  @include('main.layouts.footer')
+
+  @include('main.layouts.mainjs')
 </body>
 </html>

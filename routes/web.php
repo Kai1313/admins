@@ -21,8 +21,12 @@ Route::get('/forgot', function () {
 })->name('forgot');
 
 Route::get('/', function() {
-    return view('main/master');
+    return view('main/home');
 })->name('home');
+
+Route::get('/list', function() {
+    return view('main/list');
+})->name('product-list');
 
 Route::prefix('administration')->group(function(){
     Route::get('/dashboard', function () {

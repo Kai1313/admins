@@ -1,0 +1,119 @@
+.product-list-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #6BCB77;
+}
+@media (min-width: 768px) {
+    .product-list-title {
+        font-size: 2rem;
+    }
+}
+
+.hr-product-list {
+    display: block;
+    flex: 1;
+    margin: 0 30px;
+    height: 3px;
+    background: #FF6B6B;
+  }
+.product-list .container {
+    height: 100vh
+}
+
+.product-list {
+    --bs-gutter-x: 1rem;
+}
+
+.product-list .card {
+    background-color: #6BCB77;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+    .product-list .card {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.product-list .inner-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px
+}
+
+.product-list .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+@media (min-width: 768px) {
+    .product-list .card-title {
+        font-size: calc(1.275rem + .3vw);
+    }
+}
+
+.product-list .card-price {
+    font-size: 1rem;
+    font-weight: bold;
+}
+@media (min-width: 768px) {
+    .product-list .card-price {
+        font-size: calc(1.3rem + .6vw);
+    }
+}
+
+.product-list .heart {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #beb4aa;
+    border-radius: 50%;
+    background-color: #eee
+}
+
+.product-list .btn-outline-primary:focus,
+.product-list .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #FF6B6B;
+    border-color: #FF6B6B;
+    box-shadow: none
+}
+
+.product-list .btn-primary:focus,
+.product-list .btn-primary:hover {
+    color: #fff;
+    background-color: #6BCB77;
+    border-color: #6BCB77;
+    box-shadow: none
+}
+
+.product-list .btn-primary {
+    color: #fff;
+    background-color: #6BCB77;
+    border-color: #6BCB77;
+}
+
+.product-list .btn-outline-primary {
+    color: #FF6B6B;
+    border-color: #FF6B6B;
+}
+
+.btn-load-more {
+    background-color: #FF6B6B;
+    border-color: #FF6B6B;
+    color: #fff;
+}
+
+.btn-load-more:hover, .btn-load-more:focus {
+    background-color: #FFF;
+    border-color: #FF6B6B;
+    color: #FF6B6B;
+    box-shadow: none;
+}

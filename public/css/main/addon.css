@@ -1,0 +1,136 @@
+/* color palete */
+.green-pal {
+    color: #6BCB77;
+}
+.bg-green-pal {
+    background-color: #6BCB77;
+}
+
+.blue-pal {
+    color: #4D96FF;
+}
+
+.yellow-pal {
+    color: #FFD93D;
+}
+
+.red-pal {
+    color: #FF6B6B;
+}
+
+/* Header  */
+.logo-image {
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+@media (min-width: 1200px) {
+    .logo-image {
+        width: 55%;
+    }
+}
+
+.form-inputs {
+    position: relative
+}
+
+.form-inputs .form-control {
+    height: 45px
+}
+
+.form-inputs .form-control:focus {
+    box-shadow: none;
+    border: 1px solid #000
+}
+
+.form-inputs i {
+    position: absolute;
+    right: 10px;
+    top: 15px
+}
+
+.shop-bag {
+    background-color: #6BCB77;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center
+}
+
+.qty {
+    color: #fff;
+    font-size: 12px;
+}
+
+.phone-navbar {
+    color: #fff;
+    font-size: 8px;
+}
+@media (min-width: 992px) {
+    .phone-navbar {
+        font-size: 12px;
+    }
+}
+
+/* Footer */
+footer {
+    color: #fff !important
+}
+
+footer p {
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+    display: fkex
+}
+
+footer h3 {
+    font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+footer .social {
+    font-size: 21px !important
+}
+
+footer .color-text {
+    color: #fff !important
+}
+
+footer button {
+    font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+    background-color: #2CA6FB !important;
+    padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+    padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+footer button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+footer li {
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+.footers .careers {
+    cursor: pointer;
+    color: #fff;
+}
+
+.logo-image-footer {
+    width: 10%;
+    height: auto;
+    margin: auto;
+}
+@media (min-width: 768px) {
+    .logo-image-footer {
+        width: 35%;
+    }
+}

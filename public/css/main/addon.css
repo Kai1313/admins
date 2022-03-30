@@ -18,6 +18,10 @@
     color: #FF6B6B;
 }
 
+body {
+    font-family: "Poppins", sans-serif
+}
+
 /* Header  */
 .logo-image {
     width: 50%;

@@ -139,3 +139,6 @@
     </div>
   </section>
 @endsection
+@section('addon-js')
+<script src="{{ asset('js/main/umkm-main.js') }}"></script>
+@endsection

@@ -28,6 +28,10 @@ Route::get('/list', function() {
     return view('main/list');
 })->name('product-list');
 
+Route::get('/detail', function() {
+    return view('main/detail');
+})->name('product-detail');
+
 Route::prefix('administration')->group(function(){
     Route::get('/dashboard', function () {
         return view('admin/dashboard');

@@ -9,5 +9,6 @@
   @include('main.layouts.footer')
 
   @include('main.layouts.mainjs')
+  @yield('addon-js')
 </body>
 </html>

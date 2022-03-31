@@ -15,10 +15,15 @@ class CreateTableItems extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('companyId');
+            $table->bigInteger('categoriesId');
             $table->string('title', 100);
             $table->string('slug', 150);
+            $table->integer('price');
             $table->text('description');
             $table->text('mainpic');
+            $table->text('detail1');
+            $table->text('detail2');
             $table->timestamps();
         });
     }

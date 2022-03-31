@@ -80,6 +80,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item {{ request()->is('administration/product/*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('administration/product/*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-boxes"></i>
+              <p>
+                Product
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('product-list') }}" class="nav-link {{ request()->is('administration/product/list') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Product List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('product-manage') }}" class="nav-link {{ request()->is('administration/product/manage') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Product</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

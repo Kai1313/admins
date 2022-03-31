@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,13 @@ Route::prefix('administration')->group(function(){
         Route::get('/manage/{id?}', function () {
             return view('admin/article-manage');
         })->middleware(['auth'])->name('article-manage');
+    });
+    Route::prefix('product')->group(function(){
+        Route::get('/list', function () {
+            return view('admin/product-list');
+        })->middleware(['auth'])->name('product-list');
+        Route::get('/manage/{id?}', [ProductController::class, 'manageForm'])->middleware(['auth'])->name('product-manage');
+        Route::post('submitProduct', [ProductController::class, 'store'])->middleware(['auth'])->name('submit-product');
     });
 });
 

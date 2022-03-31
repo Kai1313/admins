@@ -34,7 +34,9 @@
             <div class="about"> <span class="fw-bold">IKEA x HAY Ypperlig Collection </span>
               <h4 class="fw-bold">$3,444</h4>
             </div>
-            <div class="buttons"> <button class="btn btn-outline-warning btn-long cart">Add to Cart</button> <button class="btn btn-warning btn-long buy">Buy it Now</button> <button class="btn btn-light wishlist"> <i class="fa fa-heart"></i> </button> </div>
+            <div class="buttons">
+              <button class="btn btn-warning btn-long buy"><i class="fa fa-whatsapp"></i> Beli</button>
+            </div>
             <hr>
             <div class="product-description">
               <div class="d-flex flex-row align-items-center"> <i class="fa fa-calendar-check-o"></i> <span class="ms-1">Delivery from sweden, 15-45 days</span> </div>

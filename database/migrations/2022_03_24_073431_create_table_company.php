@@ -13,8 +13,13 @@ class CreateTableCompany extends Migration
      */
     public function up()
     {
-        Schema::table('company', function (Blueprint $table) {
-            //
+        Schema::create('company', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name', 100);
+            $table->string('address', 240);
+            $table->text('description');
+            $table->text('mainpic');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class CreateTableCompany extends Migration
      */
     public function down()
     {
-        Schema::table('company', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('company');
     }
 }

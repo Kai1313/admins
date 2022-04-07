@@ -92,6 +92,8 @@
   <!-- jquery-validation -->
   <script src="{{ asset('assets/lte/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
   <script src="{{ asset('assets/lte/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+@endsection
+@section('addon-script')
   <script>
     let submitUrl = "{{ route('submit-product') }}"
   </script>

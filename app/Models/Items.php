@@ -9,4 +9,8 @@ class Items extends Model
 {
     use HasFactory;
     protected $table = 'items';
+
+    public function getTableColumns() {
+        return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());
+    }
 }

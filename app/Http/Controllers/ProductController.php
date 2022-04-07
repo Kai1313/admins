@@ -35,19 +35,19 @@ class ProductController extends Controller
                 $ext = $request->thumbnailImage->clientExtension();
                 $namafile = "PRODUCT-".$productSlug. '-' . date("Ymd-His") . "." . $ext;
                 $filepath = $request->file('thumbnailImage')->move(public_path("assets/images/products"), $namafile);
-                $product->mainpic = $filepath;
+                $product->mainpic = $namafile;
             }
             if(!empty($request->detailImage1)){
                 $ext = $request->detailImage1->clientExtension();
-                $namafile = "PRODUCT-".$productSlug. '-' . date("Ymd-His") . "." . $ext;
-                $filepath = $request->file('detailImage1')->move(public_path("assets/images/products"), $namafile);
-                $product->detail1 = $filepath;
+                $namafile2 = "PRODUCT-".$productSlug. '-' . date("Ymd-His") . "." . $ext;
+                $filepath = $request->file('detailImage1')->move(public_path("assets/images/products"), $namafile2);
+                $product->detail1 = $namafile2;
             }
             if(!empty($request->detailImage2)){
                 $ext = $request->detailImage2->clientExtension();
-                $namafile = "PRODUCT-".$productSlug. '-' . date("Ymd-His") . "." . $ext;
-                $filepath = $request->file('detailImage2')->move(public_path("assets/images/products"), $namafile);
-                $product->detail2 = $filepath;
+                $namafile3 = "PRODUCT-".$productSlug. '-' . date("Ymd-His") . "." . $ext;
+                $filepath = $request->file('detailImage2')->move(public_path("assets/images/products"), $namafile3);
+                $product->detail2 = $namafile3;
             }
             if (!$product->save()) {
                 Log::info("Error when saving product.");
@@ -69,5 +69,83 @@ class ProductController extends Controller
                 'message'=>'Error when submit product'
             ]);
         }
+    }
+
+    public function getProductList(Request $request) {
+        // Log::info($request);
+        $offset = $request->start;
+        $limit = $request->length;
+        $keyword = $request->search['value'];
+        $order = $request->order[0];
+        $sort = [];
+        foreach ($request->order as $key => $o) {
+            $columnIdx = $o['column'];
+            $sortDir = $o['dir'];
+            $sort[] = [
+                'column' => $request->columns[$columnIdx]['name'],
+                'dir' => $sortDir
+            ];
+        }
+        $columns = $request->columns;
+        $draw = $request->draw;
+        $model = new Items;
+        $fields = $model->getTableColumns();
+        $list = $model->select('*');
+        if (!empty($keyword)) {
+            $list->where(function($que) use ($keyword, $fields){
+                foreach ($fields as $fs) {
+                    // Log::info($fs.' LIKE '."%$keyword%");
+                    $que->orWhere($fs, 'LIKE', "%$keyword%");
+                }
+            });
+        }
+        $filtered = $list->get();
+        // Log::info(json_encode($filtered));
+        if (!empty($sort)) {
+            if (!is_array($sort)) {
+                $message = "Invalid array for parameter sort";
+                $data = [
+                    'result' => FALSE,
+                    'message' => $message
+                ];
+                return response()->json($data);
+            }
+
+            foreach ($sort as $key => $sort) {
+                $column = $sort['column'];
+                $direction = $sort['dir'];
+                if (!in_array($column, $fields)) {
+                    $message = "Invalid array for parameter sort";
+                    $data = [
+                        'result' => FALSE,
+                        'message' => $message
+                    ];
+                    return response()->json($data, 500);
+                } 
+                else {
+                    $list->orderBy($column, $direction);
+                }
+            }
+        }
+        $total_rows = $list->count();
+
+        $page = $offset / $limit + 1;
+        $offset = ($page - 1) * $limit;
+        if ($offset < 0) {
+            $offset = 0;
+        }
+        $list->skip($offset)->take($limit);
+        $res = $list->get();
+        foreach ($res as $rs => $value) {
+            $res[$rs]->companyName = Company::find($value->companyId)->first()->name;
+            $res[$rs]->categoriesName = Categories::find($value->categoriesId)->first()->name;
+        }
+
+        $table['draw'] = $draw;
+        $table['recordsTotal'] = $total_rows;
+        $table['recordsFiltered'] = count($filtered);
+        $table['data'] = $res;
+
+        return json_encode($table);
     }
 }

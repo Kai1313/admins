@@ -57,6 +57,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item {{ request()->is('administration/banner/*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('administration/banner/*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Banner
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('banner-list') }}" class="nav-link {{ request()->is('administration/banner/list') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Banner List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('banner-manage') }}" class="nav-link {{ request()->is('administration/banner/manage') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Banner</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item {{ request()->is('administration/article/*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->is('administration/article/*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-book"></i>

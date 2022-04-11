@@ -13,10 +13,12 @@ use Log;
 
 class ProductController extends Controller
 {
-    public function manageForm() {
+    public function manageForm($ids = NULL) {
+        $item = Items::find($ids);
+        // dd(isset($item));
         $companies = Company::all();
         $categories = Categories::all();
-        return view('admin.product-manage', ['companies'=>$companies, 'categories'=>$categories]);
+        return view('admin.product-manage', ['item'=>$item, 'companies'=>$companies, 'categories'=>$categories]);
     }
 
     public function store(Request $request) {

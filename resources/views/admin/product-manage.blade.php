@@ -23,7 +23,7 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title" id="form-title">Add Prduct</h3>
+              <h3 class="card-title" id="form-title">{{ (isset($item)) ? 'Edit Product' : 'Add Product' }}</h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                   <i class="fas fa-minus"></i>
@@ -33,16 +33,17 @@
             <div class="card-body">
               <form action="" method="post" id="product-form">
                 @csrf
+                <input type="hidden" name="productId" value="{{ (isset($item) ? $item->id : '' ) }}">
                 <div class="form-group">
                   <label for="productName">Product Name</label>
-                  <input type="text" id="productName" name="productName" class="form-control" placeholder="Product name">
+                  <input type="text" id="productName" name="productName" class="form-control" placeholder="Product name" value="{{ (isset($item) ? $item->title : '' ) }}" {{ (isset($item) ? 'readonly' : '' ) }}>
                 </div>
                 <div class="form-group">
                   <label for="productName">Company</label>
                   <select name="company" id="company" class="form-control">
                     <option value="">Pick UMKM</option>
                     @foreach ($companies as $company)
-                      <option value="{{ $company->id }}">{{ $company->name }}</option>
+                      <option value="{{ $company->id }}" {{ (isset($item)) ? 'selected' : '' }}>{{ $company->name }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -51,13 +52,13 @@
                   <select name="category" id="category" class="form-control">
                     <option value="">Pick Categories</option>
                     @foreach ($categories as $category)
-                      <option value="{{ $category->id }}">{{ $category->name }}</option>
+                      <option value="{{ $category->id }}" {{ (isset($item)) ? ($item->categoriesId == $category->id) ? 'selected' : '' : '' }}>{{ $category->name }}</option>
                     @endforeach
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="productPrice">Product Price (Rp)</label>
-                  <input type="number" id="productPrice" name="productPrice" class="form-control" placeholder="Product price">
+                  <input type="number" id="productPrice" name="productPrice" class="form-control" placeholder="Product price" value="{{ (isset($item) ? $item->price : '' ) }}">
                 </div>
                 <div class="form-group">
                   <label for="productDescription">Product Description</label>
@@ -65,14 +66,29 @@
                 </div>
                 <div class="form-group">
                   <label for="thumbnailImage">Thumbnail</label>
+                  @if (isset($item))
+                    <div class="col-4">
+                      <img src="{{ url('') }}/assets/images/products/{{ $item->mainpic }}" class="img-fluid mb-2"/>
+                    </div>
+                  @endif
                   <input type="file" id="thumbnailImage" name="thumbnailImage" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="detailImage">Detail 1</label>
+                  @if (isset($item))
+                    <div class="col-4">
+                      <img src="{{ url('') }}/assets/images/products/{{ $item->detail1 }}" class="img-fluid mb-2"/>
+                    </div>
+                  @endif
                   <input type="file" id="detailImage1" name="detailImage1" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="detailImage">Detail 2</label>
+                  @if (isset($item))
+                    <div class="col-4">
+                      <img src="{{ url('') }}/assets/images/products/{{ $item->detail2 }}" class="img-fluid mb-2"/>
+                    </div>
+                  @endif
                   <input type="file" id="detailImage2" name="detailImage2" class="form-control">
                 </div>
               </form>

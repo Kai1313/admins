@@ -34,7 +34,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" width="100%">
                   <thead>
                   <tr>
                     <th>Company</th>
@@ -72,7 +72,9 @@
 @endsection
 @section('addon-script')
   <script>
+    let baseUrl = "{{ url('') }}"
     let listUrl = "{{ route('get-product-list') }}"
+    let manageUrl = "{{ route('product-manage') }}"
   </script>
   <script src="{{ asset('js/admin/product-list.js') }}"></script>
 @endsection

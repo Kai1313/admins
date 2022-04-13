@@ -43,7 +43,7 @@
                   <select name="company" id="company" class="form-control">
                     <option value="">Pick UMKM</option>
                     @foreach ($companies as $company)
-                      <option value="{{ $company->id }}" {{ (isset($item)) ? 'selected' : '' }}>{{ $company->name }}</option>
+                      <option value="{{ $company->id }}" {{ (isset($item)) ? ($item->companyId == $company->id) ? 'selected' : '' : '' }}>{{ $company->name }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="form-group">
                   <label for="thumbnailImage">Thumbnail</label>
-                  @if (isset($item))
+                  @if (isset($item) && ($item->mainpic != ''))
                     <div class="col-4">
                       <img src="{{ url('') }}/assets/images/products/{{ $item->mainpic }}" class="img-fluid mb-2"/>
                     </div>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group">
                   <label for="detailImage">Detail 1</label>
-                  @if (isset($item))
+                  @if (isset($item) && ($item->detail1 != ''))
                     <div class="col-4">
                       <img src="{{ url('') }}/assets/images/products/{{ $item->detail1 }}" class="img-fluid mb-2"/>
                     </div>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="form-group">
                   <label for="detailImage">Detail 2</label>
-                  @if (isset($item))
+                  @if (isset($item) && ($item->detail2 != ''))
                     <div class="col-4">
                       <img src="{{ url('') }}/assets/images/products/{{ $item->detail2 }}" class="img-fluid mb-2"/>
                     </div>

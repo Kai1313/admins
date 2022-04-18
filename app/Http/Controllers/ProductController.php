@@ -139,8 +139,8 @@ class ProductController extends Controller
         $list->skip($offset)->take($limit);
         $res = $list->get();
         foreach ($res as $rs => $value) {
-            $res[$rs]->companyName = Company::find($value->companyId)->first()->name;
-            $res[$rs]->categoriesName = Categories::find($value->categoriesId)->first()->name;
+            $res[$rs]->companyName = Company::find($value->companyId)->name;
+            $res[$rs]->categoriesName = Categories::find($value->categoriesId)->name;
         }
 
         $table['draw'] = $draw;

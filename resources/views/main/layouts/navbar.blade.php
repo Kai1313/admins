@@ -15,19 +15,23 @@
       </div>
   </nav> --}}
   <section class="header-main border-bottom bg-success">
-      <div class="container-fluid">
-          <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
-              <div class="col-md-2"> <img class="d-none d-md-flex logo-image" src="{{ asset('assets/images/logo.png') }}"> </div>
-              <div class="col-md-8">
-                  <div class="d-flex form-inputs"> <input class="form-control" type="text" placeholder="Search any product..."> <i class="bx bx-search"></i> </div>
-              </div>
-              <div class="col-md-2">
-                  <div class="d-flex d-none d-md-flex flex-row align-items-center"> <span class="shop-bag"><i class='bx bxl-whatsapp'></i></span>
-                      <div class="d-flex flex-column ms-2"> <span class="qty">Information</span> <span class="fw-bold phone-navbar">0852-3731-4114</span> </div>
-                  </div>
-              </div>
+    <div class="container-fluid">
+      <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
+        <div class="col-md-2">
+          <a href="{{ route('home') }}">
+            <img class="d-none d-md-flex logo-image" src="{{ asset('assets/images/logo.png') }}">
+          </a> 
+        </div>
+        <div class="col-md-8">
+          <div class="d-flex form-inputs"> <input class="form-control" type="text" placeholder="Search any product..."> <i class="bx bx-search"></i> </div>
+        </div>
+        <div class="col-md-2">
+          <div class="d-flex d-none d-md-flex flex-row align-items-center"> <span class="shop-bag"><i class='bx bxl-whatsapp'></i></span>
+          <div class="d-flex flex-column ms-2"> <span class="qty">Information</span> <span class="fw-bold phone-navbar">0852-3731-4114</span> </div>
           </div>
+        </div>
       </div>
+    </div>
   </section>
   {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid"> <a class="navbar-brand d-md-none d-md-flex" href="#">Categories</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>

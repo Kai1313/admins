@@ -82,10 +82,10 @@ function save() {
       dataType: "JSON",
       success: function (data) {
         if (data.status) {
-          
+          alert('Success')
         }
         else {
-
+          alert('Failed')
         }
       }
     })

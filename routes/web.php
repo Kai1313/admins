@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +22,15 @@ Route::get('/forgot', function () {
     return view('admin/forgot-password');
 })->name('forgot');
 
-Route::get('/', function() {
-    return view('main/home');
-})->name('home');
+// Route::get('/', function() {
+//     return view('main/home');
+// })->name('home');
+// Route::get('/list', function() {
+//     return view('main/list');
+// })->name('product-list');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/list/{keyword?}', [HomeController::class, 'mainList'])->name('list-product');
 
-Route::get('/list', function() {
-    return view('main/list');
-})->name('product-list');
 
 Route::get('/detail', function() {
     return view('main/detail');

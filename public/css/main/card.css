@@ -45,6 +45,22 @@
     border-radius: 5px
 }
 
+.product-list .inner-card .product-image {
+    display: flex;
+    width: 100%;
+    max-height: 212.83px;
+    border-radius: 0.25rem;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-list .inner-card .short-desc {
+    min-height: 48px;
+}
+
 .product-list .card-title {
     font-size: 1rem;
     font-weight: bold;

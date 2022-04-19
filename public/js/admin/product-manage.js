@@ -1,50 +1,95 @@
 $(function(){
-    console.log(submitUrl)
+    console.log($('[name="productId"]').val())
     $("#btn-submit").on("click", function() {
-      $("#product-form").validate({
-        rules: {
-          productName: {
-            required: true,
+      if ($('[name="productId"]').val() == '') {
+        $("#product-form").validate({
+          rules: {
+            productName: {
+              required: true,
+            },
+            company: {
+              required: true,
+            },
+            category: {
+              required: true
+            },
+            productPrice: {
+              required: true, digits: true
+            },
+            productDescription: {
+              required: true
+            },
+            thumbnailImage: {
+              required: true
+            },
           },
-          company: {
-            required: true,
+          messages: {
+            email: {
+              required: "Please enter a email address",
+              email: "Please enter a valid email address"
+            },
+            password: {
+              required: "Please provide a password",
+              minlength: "Your password must be at least 5 characters long"
+            },
+            terms: "Please accept our terms"
           },
-          category: {
-            required: true
+          errorElement: 'span',
+          errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
           },
-          productPrice: {
-            required: true, digits: true
+          highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
           },
-          productDescription: {
-            required: true
+          unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+          }
+        }) 
+      }
+      else {
+        $("#product-form").validate({
+          rules: {
+            productName: {
+              required: true,
+            },
+            company: {
+              required: true,
+            },
+            category: {
+              required: true
+            },
+            productPrice: {
+              required: true, digits: true
+            },
+            productDescription: {
+              required: true
+            },
           },
-          thumbnailImage: {
-            required: true
+          messages: {
+            email: {
+              required: "Please enter a email address",
+              email: "Please enter a valid email address"
+            },
+            password: {
+              required: "Please provide a password",
+              minlength: "Your password must be at least 5 characters long"
+            },
+            terms: "Please accept our terms"
           },
-        },
-        messages: {
-          email: {
-            required: "Please enter a email address",
-            email: "Please enter a valid email address"
+          errorElement: 'span',
+          errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
           },
-          password: {
-            required: "Please provide a password",
-            minlength: "Your password must be at least 5 characters long"
+          highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
           },
-          terms: "Please accept our terms"
-        },
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-          error.addClass('invalid-feedback');
-          element.closest('.form-group').append(error);
-        },
-        highlight: function (element, errorClass, validClass) {
-          $(element).addClass('is-invalid');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-          $(element).removeClass('is-invalid');
-        }
-      })
+          unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+          }
+        })
+      }
 
       if ($("#product-form").valid()) {
         save()

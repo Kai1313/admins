@@ -19,4 +19,10 @@ class HomeController extends Controller
         $items = ($keyword == null) ? Items::orderBy('title', 'asc')->get() : Items::like('title', "%$keyword%")->orderBy('title', 'asc')->get() ;
         return view('main.list', ['items'=>$items]);
     }
+
+    public function detailProduct(Request $request, $ids = null) {
+        $items = ($ids == null) ? abort(404) : Items::where('slug', $ids)->first();
+        $company = (isset($items)) ? Company::find($items["companyId"]) : null;
+        return (!isset($items)) ? abort(404) : view('main.detail', ['items'=>$items, 'company'=>$company]);
+    }
 }

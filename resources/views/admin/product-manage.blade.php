@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                   <label for="productDescription">Product Description</label>
-                  <textarea id="productDescription" name="productDescription" class="form-control" rows="4"></textarea>
+                  <textarea id="productDescription" name="productDescription" class="form-control" rows="4">{{ (isset($item) ? $item->description : '' ) }}</textarea>
                 </div>
                 <div class="form-group">
                   <label for="thumbnailImage">Thumbnail</label>

@@ -24,10 +24,10 @@ class ProductController extends Controller
     public function store(Request $request) {
         // dd($request->all());
         try {
-            $product = new Items;
+            $product = ($request->productId == null) ? new Items : Items::find($request->productId);
             $product->title = $request->productName;
             $productSlug = Str::of($request->productName)->slug('-');
-            $checkSlug = Items::where('slug', $productSlug)->get();
+            $checkSlug = ($request->productId == null) ? Items::where('slug', $productSlug)->get() : Items::where('slug', $productSlug)->where('id', '!=', $request->productId)->get();
             $product->slug = (count($checkSlug) > 0)?$productSlug.'('.count($checkSlug).')':$productSlug;
             $product->companyId = $request->company;
             $product->categoriesId = $request->category;
@@ -38,6 +38,7 @@ class ProductController extends Controller
                 $namafile = "PRODUCT-".$productSlug. '-' . date("Ymd-His") . "." . $ext;
                 $filepath = $request->file('thumbnailImage')->move(public_path("assets/images/products"), $namafile);
                 $product->mainpic = $namafile;
+
             }
             if(!empty($request->detailImage1)){
                 $ext = $request->detailImage1->clientExtension();

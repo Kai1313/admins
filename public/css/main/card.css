@@ -160,6 +160,7 @@
 .detail-section img {
     display: block;
     height: auto;
+    object-fit: cover;
     width: 100%
 }
 .detail-section {

@@ -28,13 +28,13 @@ Route::get('/forgot', function () {
 // Route::get('/list', function() {
 //     return view('main/list');
 // })->name('product-list');
+// Route::get('/detail', function() {
+//     return view('main/detail');
+// })->name('product-detail');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/list/{keyword?}', [HomeController::class, 'mainList'])->name('list-product');
+Route::get('/detail/{slug}', [HomeController::class, 'detailProduct'])->name('product-detail');
 
-
-Route::get('/detail', function() {
-    return view('main/detail');
-})->name('product-detail');
 
 Route::prefix('administration')->group(function(){
     Route::get('/dashboard', function () {

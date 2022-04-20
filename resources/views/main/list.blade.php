@@ -29,7 +29,7 @@
                   <div class="px-2">
                     <span class="card-price">Rp {{ $item->price }}</span>
                   </div>
-                  <div class="px-2 mt-3 d-grid gap-2 d-md-flex justify-content-md-end"> <button class="btn btn-primary btn-sm px-3"><i class="fa fa-whatsapp"></i> Beli</button> <a href="{{ url('') }}/detail/{{ $item->slug }}" class="btn btn-outline-primary btn-sm px-3">Detail <i class="fa fa-angle-double-right"></i></a> </div>
+                  <div class="px-2 mt-3 d-grid gap-2 d-md-flex justify-content-md-end"> <a href="https://wa.me/6285237314114?text=Halo%0ASaya%20ingin%20membeli%20{{ $item->title }}%0A{{ url('') }}/detail/{{ $item->slug }}%0AApakah%20barang%20tersedia" class="btn btn-primary btn-sm px-3"><i class="fa fa-whatsapp"></i> Beli</a> <a href="{{ url('') }}/detail/{{ $item->slug }}" class="btn btn-outline-primary btn-sm px-3">Detail <i class="fa fa-angle-double-right"></i></a> </div>
                 </div>
             </div>
           </div>

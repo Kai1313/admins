@@ -27,7 +27,7 @@
               <h4 class="fw-bold">Rp {{ $items["price"] }}</h4>
             </div>
             <div class="buttons">
-              <button class="btn btn-warning btn-long buy"><i class="fa fa-whatsapp"></i> Beli</button>
+              <a href="https://wa.me/6285237314114?text=Halo%0ASaya%20ingin%20membeli%20{{ $items['title'] }}%0A{{ url('') }}/detail/{{ $items['slug'] }}%0AApakah%20barang%20tersedia" class="btn btn-warning btn-long buy"><i class="fa fa-whatsapp"></i> Beli</a>
             </div>
             <hr>
             <div class="product-description">
